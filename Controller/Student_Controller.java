@@ -5,8 +5,8 @@ import java.util.Date;
 import java.util.Scanner;
 import model.Student;
 
-public class Student_Controller {
-    public static void create_student() {
+public class Student_Controller implements controller {
+    public void create() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the id of the student:");
         int id = sc.nextInt();
