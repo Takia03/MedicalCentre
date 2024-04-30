@@ -4,13 +4,13 @@ import java.util.Date;
 import DB.connection;
 import java.text.SimpleDateFormat;
 
-public class Student {
-    private int id;
-    private String name;
-    private String Department;
-    private Date dob;
-    private String Phone;
-    private String Email;
+public class Student implements model{
+    public int id;
+    public String name;
+    public String Department;
+    public Date dob;
+    public String Phone;
+    public String Email;
 
     public Student() {
     }
