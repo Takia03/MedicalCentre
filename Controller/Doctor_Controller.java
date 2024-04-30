@@ -3,7 +3,9 @@ package Controller;
 import model.Doctor;
 
 import java.sql.Time;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.SimpleTimeZone;
 
@@ -25,22 +27,23 @@ public class Doctor_Controller implements controller{
         System.out.println("Enter the end time of the doctor (HH:mm:ss): ");
         String endTimeString = sc.nextLine();
 
-        // Create a Doctor object with the parsed date
+        // Create a SimpleDateFormat object with the specified format
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        Time startTime = null;
-        Time endTime = null;
+
+        Date startTime = null;
+        Date endTime = null;
         try {
-            // Parse the startTimeString to obtain a Time object
-            startTime = Time.valueOf(startTimeString);
-            endTime = Time.valueOf(endTimeString);
-        } catch (Exception e) {
+            // Parse the startTimeString to obtain a Date object
+            startTime = sdf.parse(startTimeString);
+            endTime = sdf.parse(endTimeString);
+        } catch (ParseException e) {
             // Handle parsing exception
-            System.out.println("Error parsing time: " + e.getMessage());
+            System.out.println("Error parsing date: " + e.getMessage());
             return; // Exit the program
         }
 
         // Create a Doctor object with the parsed date
-        Doctor doctor = new Doctor(id, name, specialization, phone, email, startTime, endTime);
+        Doctor doctor = new Doctor(id, name, specialization, phone, email, new java.sql.Time(startTime.getTime()), new java.sql.Time(endTime.getTime()));
         doctor.save();
     }
 }
