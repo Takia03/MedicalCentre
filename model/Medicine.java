@@ -12,7 +12,7 @@ public class Medicine implements model{
     }
 
     public Medicine(String MedID, String Name, String Generic, String Producer){
-        this.MedLD = MedLD;
+        this.MedID = MedID;
         this.Name = Name;
         this.Generic = Generic;
         this.Producer = Producer;
