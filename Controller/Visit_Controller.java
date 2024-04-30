@@ -38,6 +38,6 @@ public class Visit_Controller implements controller{
         // Create a Visit object with the parsed date
         Visit visit = new Visit(id, patientId, visitDate, new java.sql.Time(visitTime.getTime()));
         visit.save();
-        
+
     }
 }
