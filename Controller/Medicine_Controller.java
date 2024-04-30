@@ -8,13 +8,18 @@ public class Medicine_Controller implements controller{
 
     public void create() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Medicine ID:");
-        int id = sc.nextInt();
-        System.out.println("Enter the Medicine Name: ");
-        String name = sc.nextLine();
-        System.out.println("Enter the Medicine Generic: ");
-        String type = sc.nextLine();
-        System.out.println("Enter the Medicine Producer: ");
+        System.out.println("Enter the MedID:");
+        String MedID = sc.nextLine();
+        System.out.println("Enter the Name: ");
+        String Name = sc.nextLine();
+        System.out.println("Enter the Generic: ");
+        String Generic = sc.nextLine();
+        System.out.println("Enter the Producer: ");
+        String Producer = sc.nextLine();
+
+        Medicine medicine = new Medicine(MedID, Name, Generic, Producer);
+        medicine.save();
+
 
 
     }
